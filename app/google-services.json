@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "164826215262",
+    "firebase_url": "https://ndfirebase-cf034.firebaseio.com",
+    "project_id": "ndfirebase-cf034",
+    "storage_bucket": "ndfirebase-cf034.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:164826215262:android:185ab0379301569c",
+        "android_client_info": {
+          "package_name": "ims.hacker.secondfire"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "164826215262-n1uo5lioaoc3i07s1ihm4ko6ppi3glc2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDx4UN8pNUynt1xTDfRuoSElji97KIC6Ro"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
