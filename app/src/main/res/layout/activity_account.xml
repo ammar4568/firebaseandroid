@@ -47,12 +47,20 @@
         android:textColor="#000000"
         android:textSize="20dp" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="60dp"
-        android:layout_centerInParent="true"
-        android:src="@color/colorPrimary"
-        android:layout_height="50dp" />
+    <!--<ImageView-->
+        <!--android:id="@+id/imageView"-->
+        <!--android:layout_width="60dp"-->
+        <!--android:layout_centerInParent="true"-->
+        <!--android:src="@color/colorPrimary"-->
+        <!--android:layout_height="50dp" />-->
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minHeight="50dp"
+        android:minWidth="50dp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:id="@+id/viewAllImages"

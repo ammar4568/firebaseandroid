@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -46,6 +47,7 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
     private static String TAG = "cyb";
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     private Button mAllImagesButton;
+    private ProgressBar mProgress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,12 +59,15 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
         mStorage = storage.getReference();
         firebaseAuth = FirebaseAuth.getInstance();
 
+
+        mProgress = findViewById(R.id.progressBar);
         signout= (Button) findViewById(R.id.signout);
         email=(TextView) findViewById(R.id.email);
         emailedt=(EditText)findViewById(R.id.emailedt);
         imagebtn = (Button) findViewById(R.id.imagebtn);
         mAllImagesButton = findViewById(R.id.viewAllImages);
 //        Log.i("cyb", "onCreate: " + firebaseAuth.getCurrentUser().getEmail());
+        mProgress.setVisibility(View.INVISIBLE);
         email.setText(firebaseAuth.getCurrentUser().getEmail());
         signout.setOnClickListener(this);
         imagebtn.setOnClickListener(this);
@@ -103,6 +108,8 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
     public void onActivityResult(int requestCode, int resultCode, Intent data)
     {
         if (requestCode == GALLERY_INTENT) {
+            Toast.makeText(this, "Uploading Image", Toast.LENGTH_SHORT).show();
+            mProgress.setVisibility(View.VISIBLE);
             //TODO: action
             Uri uri = data.getData();
             File f = new File("" + uri);
@@ -146,7 +153,8 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
                             .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                                 @Override
                                 public void onSuccess(DocumentReference documentReference) {
-                                    Toast.makeText(AccountActivity.this, "Uploaded", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(AccountActivity.this, "Image Uploaded", Toast.LENGTH_SHORT).show();
+                                    mProgress.setVisibility(View.INVISIBLE);
                                 }
                             });
                         } else {
@@ -156,8 +164,8 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
                     }
                 });
 
-                ImageView imageView = (ImageView) findViewById(R.id.imageView);
-                imageView.setImageBitmap(bitmap);
+//                ImageView imageView = (ImageView) findViewById(R.id.imageView);
+//                imageView.setImageBitmap(bitmap);
             } catch (IOException e) {
                 e.printStackTrace();
             }
